@@ -13,12 +13,12 @@ while $(sleep 1); do
                 /usr/bin/notify-send --urgency=critical "Мрази за баксы и Анюта ждут твой ротик."
                 last_status=${status_code}
             fi
-            elif [[ ${status_code} -eq 302 ]]; then
-                if [[ ${status_code} -ne ${last_status} ]]; then
-                    stamp=$(date '+[%F %H:%M]')
-                    echo "${stamp} Closed" >> /tmp/shawarma.log
-                    /usr/bin/notify-send --urgency=low "Все, Анюта занята."
-                    last_status=${status_code}
-                fi
+        elif [[ ${status_code} -eq 302 ]]; then
+            if [[ ${status_code} -ne ${last_status} ]]; then
+                stamp=$(date '+[%F %H:%M]')
+                echo "${stamp} Closed" >> /tmp/shawarma.log
+                /usr/bin/notify-send --urgency=low "Все, Анюта занята."
+                last_status=${status_code}
             fi
+        fi
 done
